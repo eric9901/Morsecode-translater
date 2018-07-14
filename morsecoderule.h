@@ -1,6 +1,7 @@
 #ifndef MORSECODERULE_H
 #define MORSECODERULE_H
 #include <string>
+#include <iostream>
 using namespace std;
 class morsestream {//translate a letter to morce code or morce code to letter
 private:
@@ -38,18 +39,33 @@ public:
 	string CharToMorse(char tran);
 	char MorseToChar(string tran);
 };
-class wordMorEncry{//word
+class wordToMorse{//word
 private:
 	string nomalword, morsecode;
 	morsetable T;
 public:
-	wordMorEncry():nomalword(""),morsecode("") {};
-	string  encrypt(string inword);
+	wordToMorse():nomalword(""),morsecode("") {};
+	string  translate(string inword);
 };
-class sentMorseEncry {//sentence translate
+class sentMorseTranslate {//sentence translate
   private:
-	  wordMorEncry W;
+	  wordToMorse W;
   public:
-	  string sentMor(string insentense);
+	  string sentToMor(string insentense);
+};
+
+
+class MorseToWord {
+private:
+	string nomalword;
+	morsetable T;
+public:
+	string toWord(string inMorse);
+};
+class MorseToSent {
+private:
+	MorseToWord W;
+public:
+	string ToSent(string inMorse);
 };
 #endif 
